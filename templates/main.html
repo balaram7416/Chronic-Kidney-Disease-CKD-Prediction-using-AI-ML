@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="Kidney Disease Prediction" />
+  <meta name="author" content="Balaram Reddy" />
+  <meta property="og:image" content="{{ url_for('static', filename='logo1.png') }}" />
+  <meta name="keywords" content="Flask, Machine Learning, Deep Learning, AI, ML, DL, Web Development, Kidney Disease" />
+  <meta name="description" content="A Machine Learning and Deep Learning-based web app for Multiple Disease Prediction." />
+  <title>Kidney Disease Predictor</title>
+  <link rel="icon" href="{{ url_for('static', filename='logo1.png') }}" />
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- AOS (Animate on Scroll) CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  
+  <style>
+    /* Animated Gradient Background */
+    body {
+      background: linear-gradient(-45deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    main { flex: 1; padding-top: 80px; }
+    
+    /* Navbar Hover Effects */
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #ff7e5f;
+      transition: color 0.3s;
+    }
+    
+    /* Button Animation */
+    .btn-custom {
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: white;
+      border: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-custom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+    }
+    
+    /* Footer Animation */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      transition: transform 0.3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('home') }}">
+        <span class="h4 mb-0 text-white">Balaram</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('kidneyPage') }}">Kidney-Disease</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container" data-aos="fade-up">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="mb-0">Made with <span class="text-danger">&hearts;</span> by <strong>Balaram Reddy</strong></p>
+      <div class="social-icons mt-2">
+        <a href="https://www.linkedin.com/in/venkata-sreeram" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="https://www.github.com/venkata-sreeram" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS (Animate on Scroll) JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

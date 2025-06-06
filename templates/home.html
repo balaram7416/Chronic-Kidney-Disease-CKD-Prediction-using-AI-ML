@@ -1,0 +1,137 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  .jumbotron {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    border-radius: 15px;
+    animation: fadeInUp 1s ease-in-out;
+    margin-bottom: 40px;
+  }
+  .card {
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .btn-primary {
+    background-color: #e63946;
+    border: none;
+    transition: 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: #ff6b6b;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .featurette-divider {
+    border-top: 2px solid #fff;
+    margin: 40px 0;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<section class="jumbotron" data-aos="fade-up">
+  <div class="container">
+    <h1 class="display-4">Chronic Kidney Disease Prediction</h1>
+    <p class="lead">AI-powered prediction tool for early CKD detection.</p>
+    <a href="https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Learn More</a>
+  </div>
+</section>
+
+<div class="container mb-5" data-aos="zoom-in">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100 shadow-sm p-3">
+        <h5 class="card-title text-primary">Random Forest</h5>
+        <p>Builds multiple decision trees for accurate predictions.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow-sm p-3">
+        <h5 class="card-title text-success">XGBoost</h5>
+        <p>Fast and efficient gradient boosting technique.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow-sm p-3">
+        <h5 class="card-title text-warning">SVM</h5>
+        <p>Identifies patterns and classifies data with high precision.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center" data-aos="fade-up">
+  <h2 class="section-title">How It Works</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <img src="https://cdn.icon-icons.com/icons2/2593/PNG/512/data_icon_154512.png" width="80" class="mb-3"/>
+      <h4>Step 1: Data Collection</h4>
+      <p>Gather patient medical data.</p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://www.edureka.co/blog/wp-content/uploads/2019/01/Classification-Random-Forest-Random-Forest-In-R-Edureka-2-381x300.png" width="80" class="mb-3"/>
+      <h4>Step 2: Model Processing</h4>
+      <p>Analyze data with AI algorithms.</p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://cdn.pixabay.com/photo/2016/05/25/13/18/target-1414775_960_720.png" width="80" class="mb-3"/>
+      <h4>Step 3: Prediction</h4>
+      <p>Provide real-time CKD risk assessment.</p>
+    </div>
+  </div>
+</div>
+
+<section class="container text-center mt-5" data-aos="fade-up">
+  <h2 class="section-title">Challenges & Solutions</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Data Imbalance</h4>
+      <p>Using SMOTE and weighted loss functions.</p>
+    </div>
+    <div class="col-md-6">
+      <h4>Model Overfitting</h4>
+      <p>Regularization and cross-validation techniques applied.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container text-center mt-5" data-aos="fade-up">
+  <h2 class="section-title">Future Implementations</h2>
+  <p>Moving to Django & integrating X-ray image processing.</p>
+</section>
+
+<section class="jumbotron" data-aos="fade-up">
+  <div class="container">
+    <h1 class="display-5">Start Your Prediction</h1>
+    <a href="{{ url_for('kidneyPage') }}" class="btn btn-primary btn-lg">Check Out the Project</a>
+  </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+{% endblock %}

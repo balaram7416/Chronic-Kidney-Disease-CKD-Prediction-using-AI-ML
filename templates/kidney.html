@@ -1,0 +1,99 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<!-- Animated Background -->
+<style>
+  body {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    min-height: 100vh;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .container {
+    animation: slideUp 1.2s ease-in-out;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+  .btn-info {
+    background-color: #ff4081;
+    border: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-info:hover {
+    background-color: #e91e63;
+    transform: translateY(-2px);
+  }
+
+  .table {
+    background: white;
+    border-radius: 10px;
+  }
+</style>
+
+<div class="container my-5">
+  <h1 class="text-center text-white mb-4" data-aos="zoom-in">Kidney Disease Predictor</h1>
+  <div class="card border-dark mb-5 p-4" data-aos="fade-up">
+    <div class="card-body">
+      <form action="{{ url_for('predictPage') }}" method="POST" class="row g-3">
+        {% for field in ['age', 'bp', 'al', 'su', 'rbc', 'pc', 'pcc', 'ba', 'bgr', 'bu', 'sc', 'pot', 'wc', 'htn', 'dm', 'cad', 'pe', 'ane'] %}
+        <div class="col-md-4" data-aos="fade-right">
+          <input type="text" name="{{ field }}" class="form-control" placeholder="{{ field | upper }}" required>
+        </div>
+        {% endfor %}
+        <div class="col-12">
+          <button type="submit" class="btn btn-info btn-lg w-100">Predict</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <h2 class="text-center text-white mb-4" data-aos="zoom-in">Sample Inputs in the Data Set</h2>
+  <div class="table-responsive" data-aos="fade-up">
+    <table class="table table-bordered table-striped align-middle">
+      <thead class="table-dark">
+        <tr>
+          {% for col in ['Age', 'BP', 'AL', 'SU', 'RBC', 'PC', 'PCC', 'BA', 'BGR', 'BU', 'SC', 'POT', 'WC', 'HTN', 'DM', 'CAD', 'PE', 'ANE', 'Disease'] %}
+          <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>24</td><td>100</td><td>2</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>136</td><td>60</td><td>1.9</td><td>3.7</td><td>9600</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>Present</td></tr>
+        <tr><td>68</td><td>80</td><td>3</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>157</td><td>162</td><td>9.6</td><td>4.9</td><td>11000</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>Present</td></tr>
+        <tr><td>51</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>121</td><td>27</td><td>0.8</td><td>3.7</td><td>8300</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Healthy</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Include AOS.js for Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+
+{% endblock %}

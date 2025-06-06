@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      {% if pred == 1 %}
+      <div class="card border-danger mb-4">
+        <div class="card-body text-center">
+          <h1 class="card-title text-danger">You have Kidney Disease!</h1>
+          <p class="card-text">
+            Please consult a doctor immediately. It is too risky without proper consultation. Maintain a healthy diet and lifestyle.
+          </p>
+          <hr>
+          <p class="card-text">Proper doctor consultation is needed.</p>
+          <a class="btn btn-danger btn-lg" href="https://www.who.int/" role="button" target="_blank">Learn More</a>
+        </div>
+      </div>
+      {% else %}
+      <div class="card border-success mb-4">
+        <div class="card-body text-center">
+          <h1 class="card-title text-success">Great! You are Healthy</h1>
+          <p class="card-text">
+            You are absolutely alright with no signs of kidney disease. Enjoy your life and keep taking care of your health.
+          </p>
+          <hr>
+          <p class="card-text">Stay mindful of your health—nothing is more important.</p>
+          <a class="btn btn-success btn-lg" href="https://www.who.int/" role="button" target="_blank">Learn More</a>
+        </div>
+      </div>
+      {% endif %}
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
